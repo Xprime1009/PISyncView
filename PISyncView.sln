@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PISyncView", "PISyncView.pyproj", "{FCEFEADF-61EC-4CE2-A7A0-5F4BDCA609EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCEFEADF-61EC-4CE2-A7A0-5F4BDCA609EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCEFEADF-61EC-4CE2-A7A0-5F4BDCA609EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC845284-6C9B-443B-BAA1-CED69FE7F5F7}
+	EndGlobalSection
+EndGlobal
