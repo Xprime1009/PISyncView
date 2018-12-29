@@ -37,9 +37,10 @@ def flow_filter(logFile, flowNum):
 def parseLogFile(logFile):
 	with open(logFile, 'r') as f:
 		# Create the detected number of flow objects
-		#numFlows = f.readline().count(',') + 1
-		numFlows = 3
-		for i in range(numFlows):
+		numFlows = f.readline().count(',') + 1
+		f.seek(0)
+		#numFlows = 3
+		for _ in range(numFlows):
 			# flows.append( Flow() )
 			flows.append( list() )
 
@@ -81,8 +82,8 @@ def all_yview(*args):
 	position of	the text views.
 	"""
 	print("yview args", args)
-	T1.yview(*args)
-	T2.yview(*args)
+	for w in windows:
+		w.yview(*args)
 
 def all_scroll_set(*args):
 	""" Called by the text views to set the 
@@ -92,8 +93,8 @@ def all_scroll_set(*args):
 	S.set(*args)
 
 # general configuration of the tkinter text widgets
-def configure_text(widget):
-	widget.tag_configure("header", background="black", foreground="white", spacing1=10, spacing3=10)
+# def configure_text(widget):
+# 	widget.tag_configure("header", background="black", foreground="white", spacing1=10, spacing3=10)
 
 if __name__ == '__main__':
 
@@ -102,13 +103,14 @@ if __name__ == '__main__':
 	# Create widgets
 	#T1 = tk.Text(root)
 	#T2 = tk.Text(root)
-	#S = tk.Scrollbar(root)
+	S = tk.Scrollbar(root)
 	windows = []
 	#windows.append(T1)
 	#windows.append(T2)
-	for i in range(len(flows)):
+	for _ in range(len(flows)):
 		tkText = tk.Text(root)
-		configure_text(tkText)
+		# configure_text(tkText)
+		tkText.config(background="black", foreground="light gray")
 		tkText.pack(side='left', fill='y')
 		windows.append(tkText)
 
@@ -123,11 +125,11 @@ if __name__ == '__main__':
 		for line in flow:
 			w.insert("end", line.str, line.step)
 
-	#S.config(command=all_yview)
+	S.config(command=all_yview)
 
 	# Layout Widgets
 	#T1.pack(side='left', fill='y')
-	#S.pack(side='left', fill='y')
+	S.pack(side='left', fill='y')
 	#T2.pack(side='left', fill='y')
 
 	# Display the App and keep listening for events
